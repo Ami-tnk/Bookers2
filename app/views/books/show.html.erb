@@ -8,8 +8,12 @@
     </tr>
 
     <tr>
-      <td><%= @book.user.name %></td>
-      <td><%= @book.title %></td>
+      <td><%= link_to user_path(params[:id]) do %>
+            <%= attachment_image_tag @user, :profile_image, size:"60x60", format: 'jpeg', fallback: "no_image.jpg" %><br/>
+            <%= @book.user.name %>
+          <% end %>
+      </td>
+      <td><%= link_to @book.title, book_path(params[:id]) %></td>
       <td><%= @book.body %></td>
       <% if @book.user == current_user %>
         <td><%= link_to 'Edit',  edit_book_path(params[:id]) %></td>
