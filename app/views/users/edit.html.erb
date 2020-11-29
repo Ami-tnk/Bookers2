@@ -1,3 +1,15 @@
+<!--エラーメッセージ-->
+<% if @user.errors.any? %>
+  <div class="alert">
+    <div><strong><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</strong></div>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h2>User info</h2>
 
 <%= form_with model:@user, local:true do |f| %>
