@@ -1,20 +1,33 @@
-<!--ユーザ情報挿入-->
-<%= render 'users/userinfo' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="row-md-4 mx-auto">
+      <!--ユーザ情報挿入-->
+      <div class="col">
+        <%= render 'users/userinfo', user:@user %>
+      </div>
+      <!--新規投稿フォーム挿入-->
+      <div class="col">
+        <%= render template: "books/_new" %>
+      </div>
+    </div>
 
-<!--新規投稿フォーム挿入-->
-<%= render template: "books/_new" %>
-
-<h1>Users</h1>
-<table class="users-table">
-  <tr>
-    <th>Image</th>
-    <th>name</th>
-  </tr>
-  <% @users.each do |user| %>
-  <tr>
-    <td><%= attachment_image_tag user, :profile_image, size:"60x60", format: 'jpeg', fallback: "no_image.jpg" %></td>
-    <td><%= user.name %></td>
-    <td><%= link_to "Show", user_path(user.id) %></td>
-  </tr>
-  <% end %>
-</table>
+    <div class="row-md-8 mx-auto">
+      <div class="col">
+      <h1>Users</h1>
+        <table class="table">
+          <tr>
+            <th>Image</th>
+            <th>name</th>
+          </tr>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= attachment_image_tag user, :profile_image, size:"60x60", format: 'jpeg', fallback: "no_image.jpg" %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user.id) %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

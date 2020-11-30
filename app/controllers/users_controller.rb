@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+   before_action :authenticate_user!
+
+  def show
+        @book = current_user.books.new
+    @user = User.find(params[:id])
+    @books = @user.books.page(params[:page])
+  end
 
   def index
     @book = current_user.books.new
@@ -6,11 +13,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-    @book = current_user.books.new
-    @user = User.find(params[:id])
-    @books = @user.books.page(params[:page])
-  end
+ 
 
   def edit
     @user = User.find(params[:id])
