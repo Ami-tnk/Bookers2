@@ -3,11 +3,11 @@
     <div class="row-md-4 mx-auto">
       <div class="col">
       <!--ユーザ情報挿入-->
-      <%= render 'users/userinfo'%>
+      <%= render 'users/userinfo', user: @user %>
       </div>
       <div class="col">
       <!--新規投稿フォーム挿入-->
-      <%= render template: "books/_new" %>
+      <%= render 'books/newform', booknew: @booknew %>
       </div>
     </div>
     <div class="row-md-8 mx-auto">

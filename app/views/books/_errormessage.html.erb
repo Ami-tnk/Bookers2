@@ -1,8 +1,8 @@
-<% if @book.errors.any? %>
+<% if @booknew.errors.any? %>
   <div class="alert">
-    <div><strong><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</strong></div>
+    <div><strong><%= pluralize(@booknew.errors.count, "error") %> prohibited this book from being saved:</strong></div>
     <ul>
-      <% @book.errors.full_messages.each do |message| %>
+      <% @booknew.errors.full_messages.each do |message| %>
       <li><%= message %></li>
       <% end %>
     </ul>

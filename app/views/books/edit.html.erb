@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row-md-8 mx-auto">
     <h1 class="mt-3">Editing Book</h1>
-    
+
     <%= form_with model: @book, local:true do |f| %>
       <h4>Title</h4>
       <%= f.text_field :title %>
@@ -9,7 +9,7 @@
       <%= f.text_area :body %>
       <p><%= f.submit 'Update Book' %></p>
     <% end %>
-    </div> 
+    </div>
 
     <div><%= link_to 'Show' , book_path %> | <%= link_to 'Back', books_path %></div>
   </div>
