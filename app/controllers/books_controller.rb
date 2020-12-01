@@ -2,20 +2,22 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
 
   def create
+    @user = User.find(current_user.id) #renderするのに必要
+    @books = Book.all                  #renderするのに必要
+
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
       redirect_to book_path(@book.id), notice: "You have created book successfully."
     else
-      render 'index'
+      render :index
     end
   end
 
   def index
-    @booknew = Book.new
+    @book = Book.new
     @user = User.find(current_user.id)
     @books = Book.all
-    @books = @books.page(params[:page])
   end
 
   def show
