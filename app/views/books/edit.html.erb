@@ -1,3 +1,15 @@
+<!--新規投稿投稿エラーメッセージ-->
+<% if @book.errors.any? %>
+  <div class="alert">
+    <div><strong><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</strong></div>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="container-fluid">
   <div class="row-md-8 mx-auto">
     <h1 class="mt-3">Editing Book</h1>
