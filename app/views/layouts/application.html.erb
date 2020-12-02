@@ -22,34 +22,34 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
           </button>
-          
+
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to user_path(current_user.id), class: "btn" do %><i class="fas fa-home"></i>Home<% end %>
+                <%= link_to user_path(current_user.id), class: "btn text-white" do %><i class="fas fa-home text-white"></i>Home<% end %>
               </li>
               <li class="nav-item">
-                <%= link_to users_path, class: "btn" do %><i class="fas fa-users"></i>Users<% end %>
+                <%= link_to users_path, class: "btn text-white" do %><i class="fas fa-users text-white"></i>Users<% end %>
               </li>
               <li class="nav-item">
-                <%= link_to books_path, class: "btn" do %><i class="fas fa-book-open"></i>Books<% end %>
+                <%= link_to books_path, class: "btn text-white" do %><i class="fas fa-book-open text-white"></i>Books<% end %>
               </li>
               <li class="nav-item">
-                <%= link_to destroy_user_session_path,  class: "btn", method: :delete do %><i class="fas fa-sign-out-alt"></i>logout<% end %>
+                <%= link_to destroy_user_session_path,  class: "btn text-white", method: :delete do %><i class="fas fa-sign-out-alt text-white"></i>logout<% end %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to '/', class: "btn" do %><i class="fas fa-home"></i>Home<% end %>
+                <%= link_to '/', class: "btn text-white" do %><i class="fas fa-home text-white"></i>Home<% end %>
               </li>
               <li class="nav-item">
-                <%= link_to home_about_path, class: "btn" do %><i class="fas fa-link"></i>About<% end %>
+                <%= link_to home_about_path, class: "btn text-white" do %><i class="fas fa-link text-white"></i>About<% end %>
               </li>
               <li class="nav-item">
-                <%= link_to new_user_registration_path, class: "btn" do %><i class="fas fa-user-plus"></i>sign up<% end %>
+                <%= link_to new_user_registration_path, class: "btn text-white" do %><i class="fas fa-user-plus text-white"></i>sign up<% end %>
               </li>
               <li class="nav-item">
-                <%= link_to new_user_session_path, class: "btn" do %><i class="fas fa-sign-in-alt"></i>login<% end %>
+                <%= link_to new_user_session_path, class: "btn text-white" do %><i class="fas fa-sign-in-alt text-white"></i>login<% end %>
               </li>
             <% end %>
             </ul>
@@ -57,7 +57,7 @@
         </div>
       </nav>
     </header>
-    
+
     <main>
       <% flash.each do |name, msg| %>
         <div class="alert alert-<%= name %>">
@@ -65,13 +65,10 @@
         </div>
       <% end %>
 
-      <div class="container mt-3">
-        <div class="row">
-         <%= yield %>
-        </div>
-      </div>
+          <%= yield %>
+
     </main>
-  
+
     <footer class="container mt-5">
       <div class="max-auto text-center">
         CopyRight Infratop.inc

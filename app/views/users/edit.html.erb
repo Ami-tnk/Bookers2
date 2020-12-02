@@ -1,35 +1,42 @@
-<!--エラーメッセージ-->
-<% if @user.errors.any? %>
-  <div class="alert">
-    <div><strong><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</strong></div>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+    <!--エラーメッセージ-->
+    <% if @user.errors.any? %>
+      <div class="alert alert-danger">
+        <div><strong><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</strong></div>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6  mx-auto">
+      <h2>User info</h2>
+        <%= form_with model:@user, local:true do |f| %>
+        <div class="plofile_field">
+        <%= f.label :Name %><br />
+        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
+        </div>
+
+        <div class="plofile_field">
+        <%= f.label :Image %><br />
+        <%= f.attachment_field  :profile_image %>
+        </div>
+
+        <div class="plofile_field">
+        <%= f.label :Introduction %><br />
+        <%= f.text_area :introduction %>
+        </div>
+
+        <%= f.submit "Update User", class:'btn btn-secondary' %>
+
       <% end %>
-    </ul>
+    </div>
   </div>
-<% end %>
-
-<div class="col-md-6  mx-auto">
-<h2>User info</h2>
-
-  <%= form_with model:@user, local:true do |f| %>
-  <div class="plofile_field">
-  <%= f.label :Name %><br />
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
-  </div>
-
-  <div class="plofile_field">
-  <%= f.label :Image %><br />
-  <%= f.attachment_field  :profile_image %>
-  </div>
-
-  <div class="plofile_field">
-  <%= f.label :Introduction %><br />
-  <%= f.text_area :introduction %>
-  </div>
-
-  <%= f.submit "Update User", class:'btn btn-secondary' %>
-
-<% end %>
 </div>
