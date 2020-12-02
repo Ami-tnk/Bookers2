@@ -1,40 +1,31 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4 mx-auto">
-      <div class="col">
-      <!--ユーザ情報挿入-->
-      <%= render 'users/userinfo', user: @user %>
-      </div>
-      <div class="col">
-      <!--新規投稿フォーム挿入-->
-      <%= render 'books/newform', booknew: @booknew %>
-      </div>
-    </div>
-    <div class="col-md-8 mx-auto">
-      <h1>Book detail</h1>
-      <table class="table">
-        <tr>
-          <th></th>
-          <th>Title</th>
-          <th>Opinion</th>
-          <td></td>
-          <td></th>
-        </tr>
-        <tr>
-          <td><%= link_to user_path(@book.user.id) do %>
-              <%= attachment_image_tag @user, :profile_image, size:"60x60", format: 'jpeg', fallback: "no_image.jpg" %><br/>
-              <%= @book.user.name %>
-              <% end %>
-          </td>
-          <td><%= link_to @book.title, book_path(params[:id]) %></td>
-          <td><%= @book.body %></td>
-
-          <% if @book.user == current_user %>
-          <td><%= link_to 'Edit',  edit_book_path(params[:id]) %></td>
-          <td><%= link_to 'Destroy', book_path(@book), method: :delete, "data-confirm" => "本当に消しますか?" %></td>
-          <% end %>
-        </tr>
-      </table>
-    </div>
+<div class="col-md-4 mx-auto">
+  <!--ユーザ情報挿入-->
+  <div class="col mb-3">
+    <%= render 'users/userinfo', user: @user %>
   </div>
+
+  <!--新規投稿フォーム挿入-->
+  <div class="col mt-3">
+    <%= render 'books/newform', booknew: @booknew %>
+  </div>
+</div>
+
+<div class="col-md-8 mx-auto">
+  <h2>Book detail</h2>
+  <table class="table">
+    <tr>
+      <td><%= link_to user_path(@book.user.id) do %>
+          <%= attachment_image_tag @user, :profile_image, size:"60x60", format: 'jpeg', fallback: "no_image.jpg" %><br/>
+          <%= @book.user.name %>
+          <% end %>
+      </td>
+      <td><%= link_to @book.title, book_path(params[:id]) %></td>
+      <td><%= @book.body %></td>
+
+      <% if @book.user == current_user %>
+      <td><%= link_to 'Edit',  edit_book_path(params[:id]), class:'btn btn-sm btn-success' %></td>
+      <td><%= link_to 'Destroy', book_path(@book), method: :delete, class:'btn btn-sm btn-danger', "data-confirm" => "本当に消しますか?" %></td>
+      <% end %>
+    </tr>
+  </table>
 </div>

@@ -1,6 +1,6 @@
 <!--新規投稿投稿エラーメッセージ-->
 <% if @book.errors.any? %>
-  <div class="alert">
+  <div class="alert alert-danger" role="alert">
     <div><strong><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</strong></div>
     <ul>
       <% @book.errors.full_messages.each do |message| %>
@@ -10,19 +10,14 @@
   </div>
 <% end %>
 
-<div class="container-fluid">
-  <div class="col-md-8 mx-auto">
-    <h1 class="mt-3">Editing Book</h1>
-
+<div class="col-md-4 mx-auto">
+    <h1>Editing Book</h1>
     <%= form_with model: @book, local:true do |f| %>
-      <h4>Title</h4>
-      <%= f.text_field :title %>
-      <h4>Opinion</h4>
-      <%= f.text_area :body %>
-      <p><%= f.submit 'Update Book' %></p>
+      <p>Title <br/> <%= f.text_field :title %> </p>
+      <p>Opinion <br/> <%= f.text_area :body %> </p>
+      <p><%= f.submit 'Update Book', class:'btn btn-success' %></p>
     <% end %>
-    </div>
 
-    <div><%= link_to 'Show' , book_path %> | <%= link_to 'Back', books_path %></div>
-  </div>
+    <%= link_to 'Show' , book_path %> | <%= link_to 'Back', books_path %>
 </div>
+ 

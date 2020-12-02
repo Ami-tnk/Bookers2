@@ -10,9 +10,10 @@
   </div>
 <% end %>
 
+<div class="col-md-6  mx-auto">
 <h2>User info</h2>
 
-<%= form_with model:@user, local:true do |f| %>
+  <%= form_with model:@user, local:true do |f| %>
   <div class="plofile_field">
   <%= f.label :Name %><br />
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
@@ -28,6 +29,7 @@
   <%= f.text_area :introduction %>
   </div>
 
-  <%= f.submit "Update User" %>
+  <%= f.submit "Update User", class:'btn btn-secondary' %>
 
 <% end %>
+</div>
