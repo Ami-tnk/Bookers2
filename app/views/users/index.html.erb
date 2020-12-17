@@ -19,11 +19,15 @@
           <th>name</th>
           <th></th>
           <th></th>
+          <th></th>
+          <th></th>
         </tr>
         <% @users.each do |user| %>
         <tr>
           <td><%= attachment_image_tag user, :profile_image, size:"30x30", format: 'jpeg', fallback: "no_image.jpg" %></td>
           <td><%= user.name %></td>
+          <td>フォロー数: <%= user.followings.count %></td>
+          <td>フォロワー数: <%= user.followers.count %></td>
           <td>
             <% if current_user != user %>
               <% if user.followed_by?(current_user) %>
