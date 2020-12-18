@@ -4,10 +4,10 @@
     <%= attachment_image_tag user, :profile_image, size:"100x100", fallback:"no_image.jpg" %>
 
     <table class="table table-sm">
-      <tr><th>name</th> <th><%= user.name %></th></tr>
-      <tr><th>Introduction</th> <th> <%= user.introduction %></th></tr>
-      <tr><th>フォロー数: </th> <th><%= link_to user.followings.count, follows_user_path(@user.id) %></th></tr>
-      <tr><th>フォロワー数: </th> <th><%= link_to user.followers.count, followers_user_path(@user.id) %></th></tr>
+      <tr><th>name</th> <th style="width:20px;"><%= user.name %></th></tr>
+      <tr><th>Introduction</th> <th style="width:20px;"> <%= user.introduction %></th></tr>
+      <tr><th>フォロー数: </th> <th style="width:20px;"><%= link_to user.followings.count, follows_user_path(@user.id) %></th></tr>
+      <tr><th>フォロワー数: </th> <th style="width:20px;"><%= link_to user.followers.count, followers_user_path(@user.id) %></th></tr>
     </table>
 
   <% if @user == current_user %>
