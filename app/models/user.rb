@@ -11,6 +11,10 @@ class User < ApplicationRecord
 
   validates :name, uniqueness: true, length: { minimum: 2, maximum: 20}
   validates :introduction, length: { maximum: 50 }
+  validates :postcode, presence: true
+  validates :prefecture_code, presence: true
+  validates :address_city, presence: true
+  validates :address_street, presence: true
 
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
   has_many :followings, through: :active_relationships, source: :follower
@@ -26,10 +30,10 @@ class User < ApplicationRecord
   jp_prefecture :prefecture_code
 
   def prefecture_name
-    JpPrefecture::Prefecture::Prefecture.find(code: prefecture_code).try(:name)
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
   end
 
   def prefecture_name=(prefecture_name)
-    self.prefecture_code = JpPrefecture::Prefecture::Prefecture.find(name: prefecture_name).code
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 end

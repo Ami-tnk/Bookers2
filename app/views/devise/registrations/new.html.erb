@@ -15,24 +15,24 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
         </div>
         <div class="field">
-          <%= f.label :postcode, 'postcode' %><br />
-          <%= f.text_field :postcode, autocomplete: 'postcode', class:"form-control" %>
+          <%= f.label :postcode, 'Postcode' %><br />
+          <%= f.text_field :postcode, autocomplete: 'postcode', class:"postcode", id:"address_zipcode" %>
         </div>
         <div class="field">
-          <%= f.label :prefecture_name, 'Prefecture_name' %><br />
-          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください'}, class:"form-control" %>
+          <%= f.label :prefecture_code, 'Prefecture_name' %><br />
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class:"address" %>
         </div>
         <div class="field">
           <%= f.label :address_city, 'Address_city' %><br />
-          <%= f.text_field :address_city, autocomplete: 'address_city', class:"form-control" %>
+          <%= f.text_field :address_city, autocomplete: 'address_city', class:"address form-control", id:"address_city" %>
         </div>
         <div class="field">
           <%= f.label :address_street, 'Address_street' %><br />
-          <%= f.text_field :address_street, autocomplete: 'address_street', class:"form-control" %>
+          <%= f.text_field :address_street, autocomplete: 'address_street', class:"adress form-control", id:"address_street" %>
         </div>
          <div class="field">
           <%= f.label :address_building, 'Aaddress_building' %><br />
-          <%= f.text_field :address_building, autocomplete: 'address_building', class:"form-control" %>
+          <%= f.text_field :address_building, autocomplete: 'address_building', class:"adress form-control" %>
         </div>
 
 
