@@ -16,7 +16,7 @@
         </div>
         <div class="field">
           <%= f.label :postcode, 'Postcode' %><br />
-          <%= f.text_field :postcode, autocomplete: 'postcode', class:"postcode", id:"address_zipcode" %>
+          <%= f.text_field :postcode, autocomplete: 'postal-code', class:"postcode", id:"address_zipcode" %>
         </div>
         <div class="field">
           <%= f.label :prefecture_code, 'Prefecture_name' %><br />
@@ -24,7 +24,7 @@
         </div>
         <div class="field">
           <%= f.label :address_city, 'Address_city' %><br />
-          <%= f.text_field :address_city, autocomplete: 'address_city', class:"address form-control", id:"address_city" %>
+          <%= f.text_field :address_city, autocomplete: 'address_city', class:"address", id:"address_city" %>
         </div>
         <div class="field">
           <%= f.label :address_street, 'Address_street' %><br />

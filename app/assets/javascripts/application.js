@@ -16,5 +16,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree.
 //= require jquery.jpostal
+//= require_tree.
