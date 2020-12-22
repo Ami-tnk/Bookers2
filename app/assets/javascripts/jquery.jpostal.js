@@ -13,7 +13,7 @@
  * jquery.js
  */
 
-console.log("test")
+// console.log("test")
 
 var Jpostal = {};
 

@@ -25,26 +25,21 @@
         <!--test-->
 
         <div class="field ">
-          <%= f.label :postcode, 'Postcode' %><br />
+          <%= f.label :postcode, 'Postal code' %><br />
           <%= f.text_field :postcode, autocomplete: 'postal-code', class:"postcode", id:"address_zipcode" %>
         </div>
         <div class="field">
-          <%= f.label :prefecture_code, 'Prefecture_name' %><br />
-          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class:"address" %>
+          <%= f.label :prefecture_code, 'Prefecture code' %><br />
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class:"address form-control" %>
         </div>
         <div class="field">
-          <%= f.label :address_city, 'Address_city' %><br />
-          <%= f.text_field :address_city, autocomplete: 'address_city', class:"address", id:"address_city" %>
+          <%= f.label :address_city, 'City' %><br />
+          <%= f.text_field :address_city, autocomplete: 'address_city', class:"address form-control", id:"address_city" %>
         </div>
         <div class="field">
-          <%= f.label :address_street, 'Address_street' %><br />
+          <%= f.label :address_street, 'Street' %><br />
           <%= f.text_field :address_street, autocomplete: 'address_street', class:"address form-control", id:"address_street" %>
         </div>
-         <div class="field">
-          <%= f.label :address_building, 'Aaddress_building' %><br />
-          <%= f.text_field :address_building, autocomplete: 'address_building', class:"address form-control" %>
-        </div>
-
 
         <div class="field">
           <%= f.label :password %>
