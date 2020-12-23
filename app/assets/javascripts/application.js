@@ -19,6 +19,8 @@
 //= require jquery.jpostal
 //= require_tree.
 
+console.log("test")
+
 $(function() {
   return $('#address_zipcode').jpostal({
     postcode: ['#address_zipcode'],
