@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "管理人 <from@example.com>"
+  default from: 'no-replay@gmail.com'
+
   layout 'mailer'
 end

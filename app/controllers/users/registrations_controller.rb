@@ -10,9 +10,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+
+    @user = User.new(user_params)
+
+    @user.save
+      ThanksMailer.complete_mail(@user).deliver_now
+      redirect_to user_path(@user.id), notice: 'User was successfully created.'
+  end
+
 
   # GET /resource/edit
   # def edit
@@ -38,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  
+
  protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -61,6 +68,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+  def user_params
+    params.permit(:sign_up, keys: [:name, :email])
+  end
 
   def update_resource(resource, params)
     resource.update_without_password(params)
