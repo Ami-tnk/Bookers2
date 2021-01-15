@@ -1,24 +1,28 @@
-# README
+# Webアプリケーション（Bookers2）
+  DMM WEBCAMP提出課題として作成した、<br>
+  「ユーザ機能を持ち、読んだ本の感想を投稿するサイト」です。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##制作条件
+  ・Scaffoldは利用しないこと<br>
+  ・ログイン機能には「devise」を使用<br>
+  ・画像投稿には「refile」を使用<br>
+  ・デザインは「Bootstrap」を使用<br>
 
-Things you may want to cover:
+##作成機能
+  ・ユーザのログイン・ログアウト機能<br>
+  ・ユーザの一覧表示機能、詳細情報表示機能<br>
+  ・本の投稿機能<br>
+  ・本の一覧表示機能、詳細情報表示機能<br>
+  ・いいね機能、コメント機能(非同期化)<br>
+  ・フォロー、フォロワー機能<br>
+  ・ユーザや本の検索機能<br>
+  ・住所検索機能<br>
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##その他
+  ・ユーザがログインしていない場合、ユーザ機能関連、投稿機能関連の画面にアクセスしても、<br>
+    ログイン画面だけが表示されるように設定<br>
+  ・Bookモデルのカラムのバリデーションを設定し、有効でない場合にバリデーションエラーを返すように設定<br>
+  ・処理の成功時にサクセスメッセージを表示<br>
+  ・URLを入力しても、他のユーザが投稿した投稿の編集画面、および他のユーザの編集画面には遷移できないように設定<br>
+  ・投稿データは、投稿者のみ編集や削除ができるように設定<br>
+  ・Font Awesomeを使用してアイコンを適用
